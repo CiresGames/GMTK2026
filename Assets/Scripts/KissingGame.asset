@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c36f764a4929f43a4f805f78fc994f, type: 3}
+  m_Name: KissingGame
+  m_EditorClassIdentifier: 
+  uid: kissing_game
+  instruction: 'KISS !! '
+  instructionDuration: 3
+  p1Control: {fileID: 21300000, guid: 4a7aadeea9578ac40b105777b6d88496, type: 3}
+  p2Control: {fileID: 21300000, guid: 4a7aadeea9578ac40b105777b6d88496, type: 3}

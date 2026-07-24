@@ -1,15 +1,22 @@
-using System;
-using Unity.VisualScripting.InputSystem;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
 
 public class GameManager : MonoBehaviour
 {
     // ---------- Singleton ----------
     public static GameManager Instance { get; private set; }
 
-    
+    [Header("Timer")]
+    public float maxTime = 30f;
+    public float currentTime; 
+    [SerializeField] TextMeshProUGUI timerLabel;
+
+    [Header("Input")]
+    [SerializeField] private InputActionReference reloadAction; // drag the "Reload" action asset here
+
+    public bool isGameOver = false;
 
     private void Awake()
     {
@@ -19,12 +26,34 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        currentTime = maxTime;
     }
 
+    private void OnEnable()
+    {
+        if (reloadAction != null)
+        {
+            reloadAction.action.performed += OnReloadPerformed;
+            reloadAction.action.Enable();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (reloadAction != null)
+        {
+            reloadAction.action.performed -= OnReloadPerformed;
+            reloadAction.action.Disable();
+        }
+    }
+
+    private void OnReloadPerformed(InputAction.CallbackContext ctx)
+    {
+        ResetTimer();
+    }
 
     public void StartGame()
     {
@@ -41,5 +70,40 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("mainMenu");
     }
 
+    public void ResetTimer()
+    {
+        currentTime = maxTime;
+    }
 
+    public float TimeLeft()
+    {
+        currentTime -= Time.deltaTime;
+        if (currentTime <= 0)
+        {
+            currentTime = 0;
+            TimeOut(true); 
+        }
+        return currentTime;
+    }
+
+    public void UpdateTimerLabel()
+    {
+        currentTime = TimeLeft();
+        timerLabel.text = $"{currentTime:F2} seconds";
+    }
+
+    private void Update()
+    {
+        if (!isGameOver)
+        {
+            UpdateTimerLabel();
+        }
+    }
+
+    public void TimeOut(bool flag)
+    {
+        
+        isGameOver = flag;
+       
+    }
 }
