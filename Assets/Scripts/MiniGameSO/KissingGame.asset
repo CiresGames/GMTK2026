@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c36f764a4929f43a4f805f78fc994f, type: 3}
   m_Name: KissingGame
   m_EditorClassIdentifier: 
-  uid: kissing_game
+  uid: KISS
   instruction: 'KISS !! '
   instructionDuration: 3
   p1Control: {fileID: 21300000, guid: 4a7aadeea9578ac40b105777b6d88496, type: 3}

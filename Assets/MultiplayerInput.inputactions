@@ -29,6 +29,142 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Guitar",
+            "id": "8945e514-f913-448e-9da1-5cb8ccfc6036",
+            "actions": [
+                {
+                    "name": "ChangeChord",
+                    "type": "Value",
+                    "id": "a7ef87cb-574d-421d-a08e-c978bdb7563f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PlayChord",
+                    "type": "Value",
+                    "id": "6b7bb873-d2db-475b-8437-9db1e820e039",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b71877d8-45d7-4631-96e4-78914357437d",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "ChangeChord",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da40a847-a4ff-44ec-b525-a1e7c9d182a5",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "PlayChord",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Drum",
+            "id": "251f8a72-5955-48b3-912a-59d1689e06bb",
+            "actions": [
+                {
+                    "name": "Cymbal",
+                    "type": "Button",
+                    "id": "8853aaec-9f53-402b-b9fd-f25f8b907392",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hat",
+                    "type": "Button",
+                    "id": "8de627e1-54d5-42e9-8d84-825b49c2fdb2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Kick",
+                    "type": "Button",
+                    "id": "eab9d3b3-3791-4df8-8b20-708b8248b2f1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Snare",
+                    "type": "Button",
+                    "id": "9651edce-433a-47f4-a03f-6a83e6ca6809",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "61500f34-fa56-4e43-b008-86483ad59ff2",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cymbal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ce8929a-83f7-43f8-bb16-7f8747c0e7e8",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ad13320-996e-4bce-a2b9-b8842a3ec770",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01fe25a5-ddb5-44b9-85c7-9e24785c0b64",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Snare",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

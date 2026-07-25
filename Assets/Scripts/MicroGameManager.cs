@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,8 +54,10 @@ public class MicroGameManager : MonoBehaviour
     }
 
 
-    private IEnumerator CompleteGame(int index)
+    public IEnumerator CompleteGame(int index)
     {
+
+        gameList[index].gameObject.SetActive(false); 
         ShowResolution(true);
         yield return null;
         float clipLength = listAnimator.GetCurrentAnimatorStateInfo(0).length;
@@ -78,7 +80,7 @@ public class MicroGameManager : MonoBehaviour
 
     public void StartGame(int index)
     {
-        gameList[index].gameObject.SetActive(true); 
+        gameList[index].gameObject.SetActive(true);
         StartCoroutine(gameList[index].RunGame(gameList[index].microGame));
     }
 
@@ -88,6 +90,9 @@ public class MicroGameManager : MonoBehaviour
         {
             gameNames[i].text = gameList[i].microGame.uid; 
         }
+
+        StartCoroutine(FirstGame()); 
+        
     }
     
     public void OnAnimationComplete()
@@ -95,5 +100,17 @@ public class MicroGameManager : MonoBehaviour
         ShowResolution(false);
     }
    
+
+    public IEnumerator FirstGame()
+    {
+        yield return new WaitForSeconds(1f); 
+        currentGameIndex = 0;
+        ShowResolution(true);
+        currentGameIcon[0].gameObject.SetActive(true);
+        GameManager.Instance.StartTimer(true); 
+        yield return new WaitForSeconds(2f);
+        StartGame(0);
+    }
+
 
 }

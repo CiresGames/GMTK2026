@@ -15,23 +15,21 @@ public class MicroGamePlayer : MonoBehaviour
     public bool canInteract = false;
     [SerializeField] Image p1Image, p2Image;
 
-    public void UpdateInstructions(string instruction, Sprite p1Control, Sprite p2Control)
+    public virtual void UpdateInstructions(MicroGameSO microGame)
     {
-        instructionLabel.text = instruction;
-        p1Image.sprite = p1Control;
-        p2Image.sprite = p2Control; 
+        instructionLabel.text = microGame.instruction; 
     }
 
-    public void DisplayInstructions(bool flag)
+    public virtual void DisplayInstructions(bool flag)
     {
-        instructionLabel.gameObject.SetActive(flag);
+        instructionLabel.gameObject.SetActive(flag); 
     }
 
 
     public IEnumerator RunGame(MicroGameSO microGameSO)
     {
         DisplayInstructions(true);
-        UpdateInstructions(microGameSO.instruction, microGameSO.p1Control, microGameSO.p2Control);
+        UpdateInstructions(microGameSO);
         canInteract = true;
 
         float timer = 0f;

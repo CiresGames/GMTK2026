@@ -117,6 +117,142 @@ namespace MultiplayerInput
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Guitar"",
+            ""id"": ""8945e514-f913-448e-9da1-5cb8ccfc6036"",
+            ""actions"": [
+                {
+                    ""name"": ""ChangeChord"",
+                    ""type"": ""Value"",
+                    ""id"": ""a7ef87cb-574d-421d-a08e-c978bdb7563f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PlayChord"",
+                    ""type"": ""Value"",
+                    ""id"": ""6b7bb873-d2db-475b-8437-9db1e820e039"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b71877d8-45d7-4631-96e4-78914357437d"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""ChangeChord"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da40a847-a4ff-44ec-b525-a1e7c9d182a5"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""PlayChord"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Drum"",
+            ""id"": ""251f8a72-5955-48b3-912a-59d1689e06bb"",
+            ""actions"": [
+                {
+                    ""name"": ""Cymbal"",
+                    ""type"": ""Button"",
+                    ""id"": ""8853aaec-9f53-402b-b9fd-f25f8b907392"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hat"",
+                    ""type"": ""Button"",
+                    ""id"": ""8de627e1-54d5-42e9-8d84-825b49c2fdb2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Kick"",
+                    ""type"": ""Button"",
+                    ""id"": ""eab9d3b3-3791-4df8-8b20-708b8248b2f1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Snare"",
+                    ""type"": ""Button"",
+                    ""id"": ""9651edce-433a-47f4-a03f-6a83e6ca6809"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""61500f34-fa56-4e43-b008-86483ad59ff2"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cymbal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ce8929a-83f7-43f8-bb16-7f8747c0e7e8"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ad13320-996e-4bce-a2b9-b8842a3ec770"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Kick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01fe25a5-ddb5-44b9-85c7-9e24785c0b64"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Snare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -136,11 +272,23 @@ namespace MultiplayerInput
             // Gameplay
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+            // Guitar
+            m_Guitar = asset.FindActionMap("Guitar", throwIfNotFound: true);
+            m_Guitar_ChangeChord = m_Guitar.FindAction("ChangeChord", throwIfNotFound: true);
+            m_Guitar_PlayChord = m_Guitar.FindAction("PlayChord", throwIfNotFound: true);
+            // Drum
+            m_Drum = asset.FindActionMap("Drum", throwIfNotFound: true);
+            m_Drum_Cymbal = m_Drum.FindAction("Cymbal", throwIfNotFound: true);
+            m_Drum_Hat = m_Drum.FindAction("Hat", throwIfNotFound: true);
+            m_Drum_Kick = m_Drum.FindAction("Kick", throwIfNotFound: true);
+            m_Drum_Snare = m_Drum.FindAction("Snare", throwIfNotFound: true);
         }
 
         ~@MultiplayerInput()
         {
             UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, MultiplayerInput.Gameplay.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Guitar.enabled, "This will cause a leak and performance issues, MultiplayerInput.Guitar.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Drum.enabled, "This will cause a leak and performance issues, MultiplayerInput.Drum.Disable() has not been called.");
         }
 
         /// <summary>
@@ -308,6 +456,242 @@ namespace MultiplayerInput
         /// Provides a new <see cref="GameplayActions" /> instance referencing this action map.
         /// </summary>
         public GameplayActions @Gameplay => new GameplayActions(this);
+
+        // Guitar
+        private readonly InputActionMap m_Guitar;
+        private List<IGuitarActions> m_GuitarActionsCallbackInterfaces = new List<IGuitarActions>();
+        private readonly InputAction m_Guitar_ChangeChord;
+        private readonly InputAction m_Guitar_PlayChord;
+        /// <summary>
+        /// Provides access to input actions defined in input action map "Guitar".
+        /// </summary>
+        public struct GuitarActions
+        {
+            private @MultiplayerInput m_Wrapper;
+
+            /// <summary>
+            /// Construct a new instance of the input action map wrapper class.
+            /// </summary>
+            public GuitarActions(@MultiplayerInput wrapper) { m_Wrapper = wrapper; }
+            /// <summary>
+            /// Provides access to the underlying input action "Guitar/ChangeChord".
+            /// </summary>
+            public InputAction @ChangeChord => m_Wrapper.m_Guitar_ChangeChord;
+            /// <summary>
+            /// Provides access to the underlying input action "Guitar/PlayChord".
+            /// </summary>
+            public InputAction @PlayChord => m_Wrapper.m_Guitar_PlayChord;
+            /// <summary>
+            /// Provides access to the underlying input action map instance.
+            /// </summary>
+            public InputActionMap Get() { return m_Wrapper.m_Guitar; }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+            public void Enable() { Get().Enable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+            public void Disable() { Get().Disable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+            public bool enabled => Get().enabled;
+            /// <summary>
+            /// Implicitly converts an <see ref="GuitarActions" /> to an <see ref="InputActionMap" /> instance.
+            /// </summary>
+            public static implicit operator InputActionMap(GuitarActions set) { return set.Get(); }
+            /// <summary>
+            /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <param name="instance">Callback instance.</param>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+            /// </remarks>
+            /// <seealso cref="GuitarActions" />
+            public void AddCallbacks(IGuitarActions instance)
+            {
+                if (instance == null || m_Wrapper.m_GuitarActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_GuitarActionsCallbackInterfaces.Add(instance);
+                @ChangeChord.started += instance.OnChangeChord;
+                @ChangeChord.performed += instance.OnChangeChord;
+                @ChangeChord.canceled += instance.OnChangeChord;
+                @PlayChord.started += instance.OnPlayChord;
+                @PlayChord.performed += instance.OnPlayChord;
+                @PlayChord.canceled += instance.OnPlayChord;
+            }
+
+            /// <summary>
+            /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <remarks>
+            /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+            /// </remarks>
+            /// <seealso cref="GuitarActions" />
+            private void UnregisterCallbacks(IGuitarActions instance)
+            {
+                @ChangeChord.started -= instance.OnChangeChord;
+                @ChangeChord.performed -= instance.OnChangeChord;
+                @ChangeChord.canceled -= instance.OnChangeChord;
+                @PlayChord.started -= instance.OnPlayChord;
+                @PlayChord.performed -= instance.OnPlayChord;
+                @PlayChord.canceled -= instance.OnPlayChord;
+            }
+
+            /// <summary>
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="GuitarActions.UnregisterCallbacks(IGuitarActions)" />.
+            /// </summary>
+            /// <seealso cref="GuitarActions.UnregisterCallbacks(IGuitarActions)" />
+            public void RemoveCallbacks(IGuitarActions instance)
+            {
+                if (m_Wrapper.m_GuitarActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            /// <summary>
+            /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+            /// </summary>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+            /// </remarks>
+            /// <seealso cref="GuitarActions.AddCallbacks(IGuitarActions)" />
+            /// <seealso cref="GuitarActions.RemoveCallbacks(IGuitarActions)" />
+            /// <seealso cref="GuitarActions.UnregisterCallbacks(IGuitarActions)" />
+            public void SetCallbacks(IGuitarActions instance)
+            {
+                foreach (var item in m_Wrapper.m_GuitarActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_GuitarActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        /// <summary>
+        /// Provides a new <see cref="GuitarActions" /> instance referencing this action map.
+        /// </summary>
+        public GuitarActions @Guitar => new GuitarActions(this);
+
+        // Drum
+        private readonly InputActionMap m_Drum;
+        private List<IDrumActions> m_DrumActionsCallbackInterfaces = new List<IDrumActions>();
+        private readonly InputAction m_Drum_Cymbal;
+        private readonly InputAction m_Drum_Hat;
+        private readonly InputAction m_Drum_Kick;
+        private readonly InputAction m_Drum_Snare;
+        /// <summary>
+        /// Provides access to input actions defined in input action map "Drum".
+        /// </summary>
+        public struct DrumActions
+        {
+            private @MultiplayerInput m_Wrapper;
+
+            /// <summary>
+            /// Construct a new instance of the input action map wrapper class.
+            /// </summary>
+            public DrumActions(@MultiplayerInput wrapper) { m_Wrapper = wrapper; }
+            /// <summary>
+            /// Provides access to the underlying input action "Drum/Cymbal".
+            /// </summary>
+            public InputAction @Cymbal => m_Wrapper.m_Drum_Cymbal;
+            /// <summary>
+            /// Provides access to the underlying input action "Drum/Hat".
+            /// </summary>
+            public InputAction @Hat => m_Wrapper.m_Drum_Hat;
+            /// <summary>
+            /// Provides access to the underlying input action "Drum/Kick".
+            /// </summary>
+            public InputAction @Kick => m_Wrapper.m_Drum_Kick;
+            /// <summary>
+            /// Provides access to the underlying input action "Drum/Snare".
+            /// </summary>
+            public InputAction @Snare => m_Wrapper.m_Drum_Snare;
+            /// <summary>
+            /// Provides access to the underlying input action map instance.
+            /// </summary>
+            public InputActionMap Get() { return m_Wrapper.m_Drum; }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+            public void Enable() { Get().Enable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+            public void Disable() { Get().Disable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+            public bool enabled => Get().enabled;
+            /// <summary>
+            /// Implicitly converts an <see ref="DrumActions" /> to an <see ref="InputActionMap" /> instance.
+            /// </summary>
+            public static implicit operator InputActionMap(DrumActions set) { return set.Get(); }
+            /// <summary>
+            /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <param name="instance">Callback instance.</param>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+            /// </remarks>
+            /// <seealso cref="DrumActions" />
+            public void AddCallbacks(IDrumActions instance)
+            {
+                if (instance == null || m_Wrapper.m_DrumActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_DrumActionsCallbackInterfaces.Add(instance);
+                @Cymbal.started += instance.OnCymbal;
+                @Cymbal.performed += instance.OnCymbal;
+                @Cymbal.canceled += instance.OnCymbal;
+                @Hat.started += instance.OnHat;
+                @Hat.performed += instance.OnHat;
+                @Hat.canceled += instance.OnHat;
+                @Kick.started += instance.OnKick;
+                @Kick.performed += instance.OnKick;
+                @Kick.canceled += instance.OnKick;
+                @Snare.started += instance.OnSnare;
+                @Snare.performed += instance.OnSnare;
+                @Snare.canceled += instance.OnSnare;
+            }
+
+            /// <summary>
+            /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <remarks>
+            /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+            /// </remarks>
+            /// <seealso cref="DrumActions" />
+            private void UnregisterCallbacks(IDrumActions instance)
+            {
+                @Cymbal.started -= instance.OnCymbal;
+                @Cymbal.performed -= instance.OnCymbal;
+                @Cymbal.canceled -= instance.OnCymbal;
+                @Hat.started -= instance.OnHat;
+                @Hat.performed -= instance.OnHat;
+                @Hat.canceled -= instance.OnHat;
+                @Kick.started -= instance.OnKick;
+                @Kick.performed -= instance.OnKick;
+                @Kick.canceled -= instance.OnKick;
+                @Snare.started -= instance.OnSnare;
+                @Snare.performed -= instance.OnSnare;
+                @Snare.canceled -= instance.OnSnare;
+            }
+
+            /// <summary>
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="DrumActions.UnregisterCallbacks(IDrumActions)" />.
+            /// </summary>
+            /// <seealso cref="DrumActions.UnregisterCallbacks(IDrumActions)" />
+            public void RemoveCallbacks(IDrumActions instance)
+            {
+                if (m_Wrapper.m_DrumActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            /// <summary>
+            /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+            /// </summary>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+            /// </remarks>
+            /// <seealso cref="DrumActions.AddCallbacks(IDrumActions)" />
+            /// <seealso cref="DrumActions.RemoveCallbacks(IDrumActions)" />
+            /// <seealso cref="DrumActions.UnregisterCallbacks(IDrumActions)" />
+            public void SetCallbacks(IDrumActions instance)
+            {
+                foreach (var item in m_Wrapper.m_DrumActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_DrumActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        /// <summary>
+        /// Provides a new <see cref="DrumActions" /> instance referencing this action map.
+        /// </summary>
+        public DrumActions @Drum => new DrumActions(this);
         private int m_GamepadSchemeIndex = -1;
         /// <summary>
         /// Provides access to the input control scheme.
@@ -335,6 +719,64 @@ namespace MultiplayerInput
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnMove(InputAction.CallbackContext context);
+        }
+        /// <summary>
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Guitar" which allows adding and removing callbacks.
+        /// </summary>
+        /// <seealso cref="GuitarActions.AddCallbacks(IGuitarActions)" />
+        /// <seealso cref="GuitarActions.RemoveCallbacks(IGuitarActions)" />
+        public interface IGuitarActions
+        {
+            /// <summary>
+            /// Method invoked when associated input action "ChangeChord" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnChangeChord(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "PlayChord" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnPlayChord(InputAction.CallbackContext context);
+        }
+        /// <summary>
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Drum" which allows adding and removing callbacks.
+        /// </summary>
+        /// <seealso cref="DrumActions.AddCallbacks(IDrumActions)" />
+        /// <seealso cref="DrumActions.RemoveCallbacks(IDrumActions)" />
+        public interface IDrumActions
+        {
+            /// <summary>
+            /// Method invoked when associated input action "Cymbal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnCymbal(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Hat" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnHat(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Kick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnKick(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Snare" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSnare(InputAction.CallbackContext context);
         }
     }
 }

@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputActionReference reloadAction; // drag the "Reload" action asset here
 
     public bool isGameOver = false;
+    public bool hasStarted = false;
+
+    public MicroGameManager microGameManager; 
 
     private void Awake()
     {
@@ -94,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isGameOver)
+        if (!isGameOver && hasStarted)
         {
             UpdateTimerLabel();
         }
@@ -105,5 +108,10 @@ public class GameManager : MonoBehaviour
         
         isGameOver = flag;
        
+    }
+
+    public void StartTimer(bool flag)
+    {
+        hasStarted = flag; 
     }
 }
