@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class MicroGamePlayer : MonoBehaviour
 {
+    public MicroGameSO microGame;
     [SerializeField] TextMeshProUGUI instructionLabel;
     public bool hasResolved = false;
     public bool canInteract = false;

@@ -24,7 +24,7 @@ public class SheetMusicDisplay : MonoBehaviour
 
     private readonly List<GameObject> placedNotes = new List<GameObject>();
     private Dictionary<StartABandGame.NOTE, NoteVisual> noteVisualLookup;
-    private int notesRequiredToWin; // NEW: computed, not authored
+    public int notesRequiredToWin; // NEW: computed, not authored
 
     public System.Action OnSheetFilled;
 
@@ -34,8 +34,14 @@ public class SheetMusicDisplay : MonoBehaviour
         foreach (var nv in noteVisuals)
             noteVisualLookup[nv.note] = nv;
 
-        RecalculateCapacity(); // NEW
     }
+
+    private void Start()
+    {
+
+    }
+
+
 
     // NEW
     private void RecalculateCapacity()

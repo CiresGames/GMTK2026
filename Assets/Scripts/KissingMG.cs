@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class KissingMG : MicroGamePlayer
 {
-    [SerializeField] MicroGameSO microGame;
     [SerializeField] TextMeshProUGUI outcomeLabel;
 
     [SerializeField] InputActionReference debugAction;

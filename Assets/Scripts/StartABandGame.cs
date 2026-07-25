@@ -9,6 +9,7 @@ public class StartABandGame : MicroGamePlayer
     [SerializeField] AudioClip C, D, E, F, G, A, B, D1;
     [SerializeField] float wheelDeadzone = 0.2f; // ignore stick near center
     [SerializeField] float strumThreshold = 0.5f;
+    [SerializeField] float strumReleaseThreshold = 0.25f; // must fall back below this before it can re-trigger
     [SerializeField] SheetMusicDisplay sheetMusic;
 
     public enum NOTE
@@ -85,19 +86,34 @@ public class StartABandGame : MicroGamePlayer
         currentChord = wheelOrder[slice];
     }
 
+
     public void PlayChord()
     {
         if (playNoteAction == null) return;
         float y = playNoteAction.action.ReadValue<Vector2>().y;
-        int direction = 0;
-        if (y > strumThreshold) direction = 1;
-        else if (y < -strumThreshold) direction = -1;
 
-        if (direction != 0 && direction != lastStrumDirection)
+        if (lastStrumDirection == 0)
         {
-            Strum();
+            // Not currently in a strum — check if we've crossed the trigger threshold
+            if (y > strumThreshold)
+            {
+                lastStrumDirection = 1;
+                Strum();
+            }
+            else if (y < -strumThreshold)
+            {
+                lastStrumDirection = -1;
+                Strum();
+            }
         }
-        lastStrumDirection = direction;
+        else
+        {
+            // Currently in a strum — only clear it once we're back near center
+            if (Mathf.Abs(y) < strumReleaseThreshold)
+            {
+                lastStrumDirection = 0;
+            }
+        }
     }
 
     private void Strum()
