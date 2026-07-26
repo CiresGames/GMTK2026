@@ -55,7 +55,7 @@ public class MicroGameManager : MonoBehaviour
         currentGameIcon[index].gameObject.SetActive(false);
         completedGame[index].gameObject.SetActive(true);
         Debug.Log("completedGame set active");
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Checking next game, index+1=" + (index + 1) + " count=" + currentGameIcon.Count);
         if (!(index + 1 >= currentGameIcon.Count))
         {
