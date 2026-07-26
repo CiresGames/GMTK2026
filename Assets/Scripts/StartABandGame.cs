@@ -366,7 +366,7 @@ public class StartABandGame : MicroGamePlayer
         guitarSheetMusic.StopFeedbackLoop();
         drumSheetMusic.StopFeedbackLoop();
 
-        StartCoroutine(GameManager.Instance.microGameManager.CompleteGame(GameManager.Instance.microGameManager.currentGameIndex)); 
+        GameManager.Instance.microGameManager.CompleteGameCoroutine(GameManager.Instance.microGameManager.currentGameIndex);
     }
 
    

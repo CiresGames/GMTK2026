@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void UpdateTimerLabel()
     {
         currentTime = TimeLeft();
-        timerLabel.text = $"{currentTime:F2} seconds";
+        timerLabel.text = $"{currentTime:F0}";
     }
 
     private void Update()

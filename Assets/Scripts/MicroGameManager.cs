@@ -30,66 +30,51 @@ public class MicroGameManager : MonoBehaviour
 
 
 
-    private void OnEnable()
-    {
-        if (debugAction != null)
-            debugAction.action.performed += OnDebugPerformed;
-    }
-
-    private void OnDisable()
-    {
-        if (debugAction != null)
-            debugAction.action.performed -= OnDebugPerformed;
-    }
-
-    public void OnDebugPerformed(InputAction.CallbackContext ctx)
-    {
-        StartCoroutine(CompleteGame(currentGameIndex)); 
-    }
-
-
     public void ShowResolution(bool flag)
     {
         listAnimator.SetBool(TRIGGER_ANIM, flag); 
     }
 
 
+    public void CompleteGameCoroutine(int index)
+    {
+        StartCoroutine(CompleteGame(index)); 
+    }
+
+
     public IEnumerator CompleteGame(int index)
     {
-
-        gameList[index].gameObject.SetActive(false); 
+        Debug.Log("CompleteGame start, index=" + index);
+        gameList[index].gameObject.SetActive(false);
         ShowResolution(true);
         yield return null;
+        Debug.Log("After ShowResolution");
         float clipLength = listAnimator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(0.5f);
-
+        Debug.Log("About to set completedGame active, count=" + completedGame.Count);
         currentGameIcon[index].gameObject.SetActive(false);
         completedGame[index].gameObject.SetActive(true);
-
-        yield return new WaitForSeconds(0.5f);
-
-
+        Debug.Log("completedGame set active");
+        yield return new WaitForSeconds(0.3f);
+        Debug.Log("Checking next game, index+1=" + (index + 1) + " count=" + currentGameIcon.Count);
         if (!(index + 1 >= currentGameIcon.Count))
         {
             currentGameIcon[index + 1].gameObject.SetActive(true);
             currentGameIndex++;
-
-            StartGame(currentGameIndex); 
+            StartGame(currentGameIndex);
         }
-
-
-
-
     }
 
     public void StartGame(int index)
     {
         gameList[index].gameObject.SetActive(true);
-        StartCoroutine(gameList[index].RunGame(gameList[index].microGame));
+        gameList[index].RunGameCoroutine(); 
     }
 
     public void Initialize()
     {
+        Debug.Log("Initialize called on " + gameObject.name + " instance " + GetInstanceID());
+
         for (int i = 0; i < gameNames.Count; i++)
         {
             gameNames[i].text = gameList[i].microGame.uid; 
@@ -114,6 +99,8 @@ public class MicroGameManager : MonoBehaviour
         GameManager.Instance.StartTimer(true); 
         yield return new WaitForSeconds(2f);
         StartGame(0);
+
+        Debug.Log(gameList[currentGameIndex] + "has started"); 
     }
 
 

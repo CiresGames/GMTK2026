@@ -73,6 +73,11 @@ public class MicroGamePlayer : MonoBehaviour
         yield return null;
     }
 
+    public void RunGameCoroutine()
+    {
+        StartCoroutine(RunGame(microGame)); 
+    }
+
 
 
 

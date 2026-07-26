@@ -26,6 +26,7 @@ public class KissingMG : MicroGamePlayer
 
     private void OnEnable()
     {
+
         moveAction.Enable();
     }
 
@@ -70,12 +71,7 @@ public class KissingMG : MicroGamePlayer
 
 
 
-    public void OnDebugPerformed(InputAction.CallbackContext ctx)
-    {
-        if (!canInteract) return;
-        hasResolved = ResolveGame();
-    }
-
+    
     public override bool ResolveGame()
     {
         return true; 
@@ -83,8 +79,11 @@ public class KissingMG : MicroGamePlayer
 
     public override IEnumerator Success()
     {
-       
-        yield return null;
+
+        GameManager.Instance.TimeOut(false);
+        Fuse();
+        yield return new WaitForSeconds(3f);
+        GameManager.Instance.microGameManager.CompleteGameCoroutine(GameManager.Instance.microGameManager.currentGameIndex);
     }
 
     public override IEnumerator Failure()
@@ -108,7 +107,7 @@ public class KissingMG : MicroGamePlayer
 
         if (player1Kissing && player2Kissing)
         {
-            Fuse();
+            hasResolved = true;
         }
     }
 
@@ -119,13 +118,8 @@ public class KissingMG : MicroGamePlayer
         var p1Input = player1.GetComponent<PlayerInput>();
         var p2Input = player2.GetComponent<PlayerInput>();
 
-        PlayerInput fusedInput = PlayerInput.Instantiate(
-            fusedPlayerPrefab,
-            controlScheme: "Gamepad",
-            pairWithDevices: new InputDevice[] { p1Input.devices[0], p2Input.devices[0] }
-        );
-
-        fusedInput.transform.position = middlePoint;
+        fusedPlayerPrefab.SetActive(true); 
+        fusedPlayerPrefab.transform.position = middlePoint;
 
         player1.SetActive(false);
         player2.SetActive(false);
