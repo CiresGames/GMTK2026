@@ -3,11 +3,11 @@ using UnityEngine;
 public class LipsTrigger : MonoBehaviour
 {
     public int playerIndex;
-    private KissingGame kissingGame;
+    private KissingMG kissingGame;
 
     void Awake()
     {
-        kissingGame = GetComponentInParent<KissingGame>();
+        kissingGame = GetComponentInParent<KissingMG>();
     }
 
     void OnTriggerEnter(Collider other)

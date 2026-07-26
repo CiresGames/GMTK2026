@@ -148,8 +148,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 961a09855ce545643a8f3f7f8b920956, type: 2}
-  m_sharedMaterial: {fileID: 7367229503315023578, guid: 961a09855ce545643a8f3f7f8b920956, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 718381dee526ba34a8595729ec1ffd80, type: 2}
+  m_sharedMaterial: {fileID: 818399518548669590, guid: 718381dee526ba34a8595729ec1ffd80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -261,7 +261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1500086114016990096, guid: 418996377a908c747b24a7a0ed57756f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -177.25
+      value: -188.95999
       objectReference: {fileID: 0}
     - target: {fileID: 6332565532829983142, guid: 418996377a908c747b24a7a0ed57756f, type: 3}
       propertyPath: m_Pivot.x
@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6332565532829983142, guid: 418996377a908c747b24a7a0ed57756f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -126.12501
+      value: -131.98
       objectReference: {fileID: 0}
     - target: {fileID: 6332565532829983142, guid: 418996377a908c747b24a7a0ed57756f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -357,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602354394861988590, guid: 418996377a908c747b24a7a0ed57756f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 105.86
+      value: 65.77
       objectReference: {fileID: 0}
     - target: {fileID: 6602354394861988590, guid: 418996377a908c747b24a7a0ed57756f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -369,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602354394861988590, guid: 418996377a908c747b24a7a0ed57756f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45.805
+      value: -51.66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7939207392390294622, guid: 46c87216344b9fd4fbc20f16e18e0657, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -126.12501
+      value: -131.98
       objectReference: {fileID: 0}
     - target: {fileID: 7939207392390294622, guid: 46c87216344b9fd4fbc20f16e18e0657, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
