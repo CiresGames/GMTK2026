@@ -7,18 +7,22 @@ using Unity.Properties;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class MicroGameManager : MonoBehaviour
 {
     [SerializeField] Animator listAnimator;
-    [SerializeField] List<MicroGamePlayer> gameList;
+    public List<MicroGamePlayer> gameList;
     [SerializeField] List<TextMeshProUGUI> gameNames;
     [SerializeField] List<RectTransform> currentGameIcon; 
     [SerializeField] List<RectTransform> completedGame;
     public int currentGameIndex = 0;
     private const string TRIGGER_ANIM = "triggerAnim";
-
+    [SerializeField] AudioSource source;
+    [SerializeField] bool hasWon;
+    [SerializeField] Image finalImage;
+    [SerializeField] Sprite win, lose; 
 
 
     public InputActionReference debugAction;
@@ -28,6 +32,10 @@ public class MicroGameManager : MonoBehaviour
         Initialize(); 
     }
 
+    public void PlaySound()
+    {
+        source.Play(); 
+    }
 
 
     public void ShowResolution(bool flag)
@@ -63,6 +71,34 @@ public class MicroGameManager : MonoBehaviour
             currentGameIndex++;
             StartGame(currentGameIndex);
         }
+
+        else
+        {
+            hasWon = true;
+            ShowResolution(true);
+            yield return null;
+            Debug.Log("After ShowResolution");
+            yield return new WaitForSeconds(0.5f);
+            Debug.Log("About to set completedGame active, count=" + completedGame.Count);
+            completedGame[index].gameObject.SetActive(true);
+
+            FinalScreen(); 
+            
+        }
+    }
+
+
+    public void FinalScreen()
+    {
+        if (hasWon)
+        {
+            finalImage.sprite = win;
+
+        }
+
+        else { finalImage.sprite = lose};
+        
+        finalImage.enabled = true; 
     }
 
     public void StartGame(int index)
@@ -97,7 +133,7 @@ public class MicroGameManager : MonoBehaviour
         ShowResolution(true);
         currentGameIcon[0].gameObject.SetActive(true);
         GameManager.Instance.StartTimer(true); 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         StartGame(0);
 
         Debug.Log(gameList[currentGameIndex] + "has started"); 

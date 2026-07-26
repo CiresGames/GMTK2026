@@ -111,6 +111,12 @@ public class GameManager : MonoBehaviour
     {
         
         isGameOver = flag;
+        foreach(MicroGamePlayer mg in microGameManager.gameList)
+        {
+            mg.gameObject.SetActive(false); 
+        }
+
+        microGameManager.FinalScreen();
        
     }
 
