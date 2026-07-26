@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Timer")]
     public float maxTime = 30f;
     public float currentTime; 
-    [SerializeField] TextMeshProUGUI timerLabel;
+    public TextMeshProUGUI timerLabel;
 
     [Header("Input")]
     [SerializeField] private InputActionReference reloadAction; // drag the "Reload" action asset here

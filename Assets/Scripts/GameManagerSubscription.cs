@@ -1,0 +1,17 @@
+using TMPro;
+using UnityEngine;
+
+public class GameManagerSubscription : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        GameManager.Instance.timerLabel = GetComponent<TextMeshProUGUI>(); 
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

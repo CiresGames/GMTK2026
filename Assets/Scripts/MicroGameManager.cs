@@ -1,10 +1,6 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Properties;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -23,13 +19,15 @@ public class MicroGameManager : MonoBehaviour
     [SerializeField] AudioSource scratch; 
     [SerializeField] bool hasWon;
     [SerializeField] Image finalImage;
-    [SerializeField] Sprite win, lose; 
-
+    [SerializeField] Sprite win, lose;
+    [SerializeField] GameObject fireworks, ambiant;
+    [SerializeField] Animator happyNewYear; 
 
     public InputActionReference debugAction;
 
     private void Start()
     {
+        GameManager.Instance.microGameManager = this; 
         Initialize(); 
     }
 
@@ -96,11 +94,14 @@ public class MicroGameManager : MonoBehaviour
         if (hasWon)
         {
             finalImage.sprite = win;
+            fireworks.SetActive(true);
 
         }
 
         else { finalImage.sprite = lose; }
-        
+        ambiant.SetActive(true);
+
+        happyNewYear.SetBool("happyNewYear", true); 
         finalImage.enabled = true; 
     }
 

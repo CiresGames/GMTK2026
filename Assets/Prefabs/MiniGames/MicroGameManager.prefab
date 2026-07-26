@@ -174,11 +174,14 @@ MonoBehaviour:
   - {fileID: 4899801135443255636}
   currentGameIndex: 0
   source: {fileID: 5292651991365190331}
-  scratch: {fileID: 0}
+  scratch: {fileID: 5665707620651073735}
   hasWon: 0
   finalImage: {fileID: 0}
-  win: {fileID: 0}
-  lose: {fileID: 0}
+  win: {fileID: 21300000, guid: 964fc700b3d8eb845957bc9f76987da8, type: 3}
+  lose: {fileID: 21300000, guid: fbeaf01eced4f6d4c96fd45edf93764c, type: 3}
+  fireworks: {fileID: 0}
+  ambiant: {fileID: 0}
+  happyNewYear: {fileID: 0}
   debugAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!82 &5292651991365190331
 AudioSource:
@@ -325,7 +328,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6f226312c77e8ca43aa1bfd9adcbac15, type: 3}
   m_Resource: {fileID: 8300000, guid: 6f226312c77e8ca43aa1bfd9adcbac15, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
