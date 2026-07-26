@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class MainMenuControl : MonoBehaviour
 {
-    
-    [SerializeField] Button startButton, quitButton, settingsButton;
+
+    [SerializeField] Button startButton, quitButton;
 
     private void Start()
     {
