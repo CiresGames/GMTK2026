@@ -11,7 +11,9 @@ public class KissingMG : MicroGamePlayer
     public GameObject player2;
     public GameObject fusedPlayerPrefab;
     [SerializeField] PlayerInput p1, p2;
-    [SerializeField] InputAction moveAction; 
+    [SerializeField] InputAction moveAction;
+    [SerializeField] AudioSource kissSource, ambient, music; 
+
 
 
     private bool player1Kissing = false;
@@ -26,8 +28,9 @@ public class KissingMG : MicroGamePlayer
 
     private void OnEnable()
     {
-
         moveAction.Enable();
+        ambient.Play();
+        music.Play(); 
     }
 
     private void OnDisable()
@@ -50,8 +53,7 @@ public class KissingMG : MicroGamePlayer
 
     }
 
-
-
+    
 
     public override void Update()
     {
@@ -80,7 +82,7 @@ public class KissingMG : MicroGamePlayer
     public override IEnumerator Success()
     {
 
-        GameManager.Instance.TimeOut(false);
+        GameManager.Instance.StartTimer(false);
         Fuse();
         yield return new WaitForSeconds(3f);
         GameManager.Instance.microGameManager.CompleteGameCoroutine(GameManager.Instance.microGameManager.currentGameIndex);
@@ -114,6 +116,7 @@ public class KissingMG : MicroGamePlayer
     private void Fuse()
     {
         Vector3 middlePoint = (player1.transform.position + player2.transform.position) / 2f;
+        kissSource.Play(); 
 
         var p1Input = player1.GetComponent<PlayerInput>();
         var p2Input = player2.GetComponent<PlayerInput>();
