@@ -91,7 +91,7 @@ namespace MultiplayerInput
     ""name"": ""MultiplayerInput"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
+            ""name"": ""Kiss"",
             ""id"": ""8156a137-6a4c-4d86-a43b-57e68486f809"",
             ""actions"": [
                 {
@@ -269,9 +269,9 @@ namespace MultiplayerInput
         }
     ]
 }");
-            // Gameplay
-            m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-            m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+            // Kiss
+            m_Kiss = asset.FindActionMap("Kiss", throwIfNotFound: true);
+            m_Kiss_Move = m_Kiss.FindAction("Move", throwIfNotFound: true);
             // Guitar
             m_Guitar = asset.FindActionMap("Guitar", throwIfNotFound: true);
             m_Guitar_ChangeChord = m_Guitar.FindAction("ChangeChord", throwIfNotFound: true);
@@ -286,7 +286,7 @@ namespace MultiplayerInput
 
         ~@MultiplayerInput()
         {
-            UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, MultiplayerInput.Gameplay.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Kiss.enabled, "This will cause a leak and performance issues, MultiplayerInput.Kiss.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Guitar.enabled, "This will cause a leak and performance issues, MultiplayerInput.Guitar.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Drum.enabled, "This will cause a leak and performance issues, MultiplayerInput.Drum.Disable() has not been called.");
         }
@@ -361,29 +361,29 @@ namespace MultiplayerInput
             return asset.FindBinding(bindingMask, out action);
         }
 
-        // Gameplay
-        private readonly InputActionMap m_Gameplay;
-        private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-        private readonly InputAction m_Gameplay_Move;
+        // Kiss
+        private readonly InputActionMap m_Kiss;
+        private List<IKissActions> m_KissActionsCallbackInterfaces = new List<IKissActions>();
+        private readonly InputAction m_Kiss_Move;
         /// <summary>
-        /// Provides access to input actions defined in input action map "Gameplay".
+        /// Provides access to input actions defined in input action map "Kiss".
         /// </summary>
-        public struct GameplayActions
+        public struct KissActions
         {
             private @MultiplayerInput m_Wrapper;
 
             /// <summary>
             /// Construct a new instance of the input action map wrapper class.
             /// </summary>
-            public GameplayActions(@MultiplayerInput wrapper) { m_Wrapper = wrapper; }
+            public KissActions(@MultiplayerInput wrapper) { m_Wrapper = wrapper; }
             /// <summary>
-            /// Provides access to the underlying input action "Gameplay/Move".
+            /// Provides access to the underlying input action "Kiss/Move".
             /// </summary>
-            public InputAction @Move => m_Wrapper.m_Gameplay_Move;
+            public InputAction @Move => m_Wrapper.m_Kiss_Move;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
-            public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+            public InputActionMap Get() { return m_Wrapper.m_Kiss; }
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
             public void Enable() { Get().Enable(); }
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -391,9 +391,9 @@ namespace MultiplayerInput
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
             public bool enabled => Get().enabled;
             /// <summary>
-            /// Implicitly converts an <see ref="GameplayActions" /> to an <see ref="InputActionMap" /> instance.
+            /// Implicitly converts an <see ref="KissActions" /> to an <see ref="InputActionMap" /> instance.
             /// </summary>
-            public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
+            public static implicit operator InputActionMap(KissActions set) { return set.Get(); }
             /// <summary>
             /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
             /// </summary>
@@ -401,11 +401,11 @@ namespace MultiplayerInput
             /// <remarks>
             /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
             /// </remarks>
-            /// <seealso cref="GameplayActions" />
-            public void AddCallbacks(IGameplayActions instance)
+            /// <seealso cref="KissActions" />
+            public void AddCallbacks(IKissActions instance)
             {
-                if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
+                if (instance == null || m_Wrapper.m_KissActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_KissActionsCallbackInterfaces.Add(instance);
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
@@ -417,8 +417,8 @@ namespace MultiplayerInput
             /// <remarks>
             /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
             /// </remarks>
-            /// <seealso cref="GameplayActions" />
-            private void UnregisterCallbacks(IGameplayActions instance)
+            /// <seealso cref="KissActions" />
+            private void UnregisterCallbacks(IKissActions instance)
             {
                 @Move.started -= instance.OnMove;
                 @Move.performed -= instance.OnMove;
@@ -426,12 +426,12 @@ namespace MultiplayerInput
             }
 
             /// <summary>
-            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="GameplayActions.UnregisterCallbacks(IGameplayActions)" />.
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="KissActions.UnregisterCallbacks(IKissActions)" />.
             /// </summary>
-            /// <seealso cref="GameplayActions.UnregisterCallbacks(IGameplayActions)" />
-            public void RemoveCallbacks(IGameplayActions instance)
+            /// <seealso cref="KissActions.UnregisterCallbacks(IKissActions)" />
+            public void RemoveCallbacks(IKissActions instance)
             {
-                if (m_Wrapper.m_GameplayActionsCallbackInterfaces.Remove(instance))
+                if (m_Wrapper.m_KissActionsCallbackInterfaces.Remove(instance))
                     UnregisterCallbacks(instance);
             }
 
@@ -441,21 +441,21 @@ namespace MultiplayerInput
             /// <remarks>
             /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
             /// </remarks>
-            /// <seealso cref="GameplayActions.AddCallbacks(IGameplayActions)" />
-            /// <seealso cref="GameplayActions.RemoveCallbacks(IGameplayActions)" />
-            /// <seealso cref="GameplayActions.UnregisterCallbacks(IGameplayActions)" />
-            public void SetCallbacks(IGameplayActions instance)
+            /// <seealso cref="KissActions.AddCallbacks(IKissActions)" />
+            /// <seealso cref="KissActions.RemoveCallbacks(IKissActions)" />
+            /// <seealso cref="KissActions.UnregisterCallbacks(IKissActions)" />
+            public void SetCallbacks(IKissActions instance)
             {
-                foreach (var item in m_Wrapper.m_GameplayActionsCallbackInterfaces)
+                foreach (var item in m_Wrapper.m_KissActionsCallbackInterfaces)
                     UnregisterCallbacks(item);
-                m_Wrapper.m_GameplayActionsCallbackInterfaces.Clear();
+                m_Wrapper.m_KissActionsCallbackInterfaces.Clear();
                 AddCallbacks(instance);
             }
         }
         /// <summary>
-        /// Provides a new <see cref="GameplayActions" /> instance referencing this action map.
+        /// Provides a new <see cref="KissActions" /> instance referencing this action map.
         /// </summary>
-        public GameplayActions @Gameplay => new GameplayActions(this);
+        public KissActions @Kiss => new KissActions(this);
 
         // Guitar
         private readonly InputActionMap m_Guitar;
@@ -706,11 +706,11 @@ namespace MultiplayerInput
             }
         }
         /// <summary>
-        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Kiss" which allows adding and removing callbacks.
         /// </summary>
-        /// <seealso cref="GameplayActions.AddCallbacks(IGameplayActions)" />
-        /// <seealso cref="GameplayActions.RemoveCallbacks(IGameplayActions)" />
-        public interface IGameplayActions
+        /// <seealso cref="KissActions.AddCallbacks(IKissActions)" />
+        /// <seealso cref="KissActions.RemoveCallbacks(IKissActions)" />
+        public interface IKissActions
         {
             /// <summary>
             /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
