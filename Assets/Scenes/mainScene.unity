@@ -1634,6 +1634,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 636990197}
     - target: {fileID: 2488564248142801603, guid: da9e926358d805a42ac37306328da337, type: 3}
+      propertyPath: finalImage
+      value: 
+      objectReference: {fileID: 294167069}
+    - target: {fileID: 2488564248142801603, guid: da9e926358d805a42ac37306328da337, type: 3}
       propertyPath: 'gameList.Array.data[0]'
       value: 
       objectReference: {fileID: 1709922292}

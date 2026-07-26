@@ -96,7 +96,7 @@ public class MicroGameManager : MonoBehaviour
 
         }
 
-        else { finalImage.sprite = lose};
+        else { finalImage.sprite = lose; }
         
         finalImage.enabled = true; 
     }

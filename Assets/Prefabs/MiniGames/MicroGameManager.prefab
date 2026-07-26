@@ -173,6 +173,10 @@ MonoBehaviour:
   - {fileID: 4899801135443255636}
   currentGameIndex: 0
   source: {fileID: 5292651991365190331}
+  hasWon: 0
+  finalImage: {fileID: 0}
+  win: {fileID: 0}
+  lose: {fileID: 0}
   debugAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!82 &5292651991365190331
 AudioSource:
