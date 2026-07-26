@@ -20,6 +20,7 @@ public class MicroGameManager : MonoBehaviour
     public int currentGameIndex = 0;
     private const string TRIGGER_ANIM = "triggerAnim";
     [SerializeField] AudioSource source;
+    [SerializeField] AudioSource scratch; 
     [SerializeField] bool hasWon;
     [SerializeField] Image finalImage;
     [SerializeField] Sprite win, lose; 
@@ -62,6 +63,7 @@ public class MicroGameManager : MonoBehaviour
         Debug.Log("About to set completedGame active, count=" + completedGame.Count);
         currentGameIcon[index].gameObject.SetActive(false);
         completedGame[index].gameObject.SetActive(true);
+        scratch.Play();
         Debug.Log("completedGame set active");
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Checking next game, index+1=" + (index + 1) + " count=" + currentGameIcon.Count);
@@ -81,6 +83,7 @@ public class MicroGameManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             Debug.Log("About to set completedGame active, count=" + completedGame.Count);
             completedGame[index].gameObject.SetActive(true);
+            scratch.Play(); 
 
             FinalScreen(); 
             
