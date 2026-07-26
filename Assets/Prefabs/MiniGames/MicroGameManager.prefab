@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 998589907907617333}
   - component: {fileID: 4232164099756879617}
   - component: {fileID: 3819463648912570220}
+  - component: {fileID: 2488564248142801603}
   m_Layer: 5
   m_Name: ResolutionList
   m_TagString: Untagged
@@ -144,6 +145,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2488564248142801603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972605686183320856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566a906606c980844b85984ed3eb6754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listAnimator: {fileID: 3819463648912570220}
+  gameList:
+  - {fileID: 0}
+  - {fileID: 0}
+  gameNames:
+  - {fileID: 9026510224134684905}
+  - {fileID: 7012910117984179136}
+  currentGameIcon:
+  - {fileID: 241638249050431980}
+  - {fileID: 2255246871893521093}
+  completedGame:
+  - {fileID: 6911284410992882301}
+  - {fileID: 4899801135443255636}
+  currentGameIndex: 0
+  debugAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &5078916330682530708
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +347,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9089360958585732305}
-  - component: {fileID: 1943859277077938395}
   m_Layer: 0
   m_Name: MicroGameManager
   m_TagString: Untagged
@@ -343,33 +370,6 @@ Transform:
   - {fileID: 261855993522493140}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1943859277077938395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8732497105282722328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566a906606c980844b85984ed3eb6754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listAnimator: {fileID: 3819463648912570220}
-  gameList:
-  - {fileID: 0}
-  - {fileID: 0}
-  gameNames:
-  - {fileID: 9026510224134684905}
-  - {fileID: 7012910117984179136}
-  currentGameIcon:
-  - {fileID: 241638249050431980}
-  - {fileID: 2255246871893521093}
-  completedGame:
-  - {fileID: 6911284410992882301}
-  - {fileID: 4899801135443255636}
-  currentGameIndex: 0
-  debugAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1001 &7120016121467615021
 PrefabInstance:
   m_ObjectHideFlags: 0

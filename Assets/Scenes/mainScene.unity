@@ -466,17 +466,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1151704574 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1943859277077938395, guid: da9e926358d805a42ac37306328da337, type: 3}
-  m_PrefabInstance: {fileID: 4494406703168814657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566a906606c980844b85984ed3eb6754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1250957743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 48037589458457176, guid: 6803b18fceccf52468fcacde175c9109, type: 3}
@@ -486,6 +475,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0995a5257d3c1db45843aab2043f8283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1283294538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2488564248142801603, guid: da9e926358d805a42ac37306328da337, type: 3}
+  m_PrefabInstance: {fileID: 4494406703168814657}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566a906606c980844b85984ed3eb6754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1283897925
@@ -523,7 +523,7 @@ MonoBehaviour:
   reloadAction: {fileID: 5525577635986885391, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   isGameOver: 0
   hasStarted: 0
-  microGameManager: {fileID: 1151704574}
+  microGameManager: {fileID: 1283294538}
 --- !u!4 &1283897927
 Transform:
   m_ObjectHideFlags: 0
@@ -1308,18 +1308,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1943859277077938395, guid: da9e926358d805a42ac37306328da337, type: 3}
-      propertyPath: 'gameList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1709922292}
-    - target: {fileID: 1943859277077938395, guid: da9e926358d805a42ac37306328da337, type: 3}
-      propertyPath: 'gameList.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1250957743}
     - target: {fileID: 2138674581265587849, guid: da9e926358d805a42ac37306328da337, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 636990197}
+    - target: {fileID: 2488564248142801603, guid: da9e926358d805a42ac37306328da337, type: 3}
+      propertyPath: 'gameList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1709922292}
+    - target: {fileID: 2488564248142801603, guid: da9e926358d805a42ac37306328da337, type: 3}
+      propertyPath: 'gameList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1250957743}
     - target: {fileID: 3092157228892453054, guid: da9e926358d805a42ac37306328da337, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

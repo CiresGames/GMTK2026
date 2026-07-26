@@ -24,7 +24,9 @@ public class StartABandGame : MicroGamePlayer
     [SerializeField] InputAction kickAction;   // float, left trigger
     [SerializeField] InputAction snareAction;  // float, right trigger
     [SerializeField] AudioSource drumSource;
+    [SerializeField] Image characterDrum; 
     [SerializeField] AudioClip cymbalClip, hatClip, kickClip, snareClip;
+    [SerializeField] Sprite cymbaSprite, hatSprite, kickSprite, snareSprite;
     [SerializeField] float triggerThreshold = 0.5f;
     [SerializeField] float triggerReleaseThreshold = 0.25f;
     [SerializeField] SheetMusicDisplay drumSheetMusic;
@@ -272,6 +274,10 @@ public class StartABandGame : MicroGamePlayer
 
         if (drumSheetMusic != null)
             drumSheetMusic.AddNote(note);
+
+        ChangeDrumSprite(note); 
+
+
     }
 
     private void HandleGuitarSheetFilled()
@@ -329,12 +335,29 @@ public class StartABandGame : MicroGamePlayer
         }
     }
 
+    private Sprite GetSpriteForNote(DRUM_NOTE note)
+    {
+        switch (note)
+        {
+            case DRUM_NOTE.Cymbal: return cymbaSprite;
+            case DRUM_NOTE.Hat: return hatSprite;
+            case DRUM_NOTE.Snare: return snareSprite;
+            case DRUM_NOTE.Kick: return kickSprite;
+            default: return null;
+        }
+    }
+
     private void ChangeGuitarSprite(GUITAR_NOTE note)
     {
         characterGuitar.sprite = GetSpriteForNote(note);
         characterGuitar.GetComponent<MMF_Player>().PlayFeedbacks(); 
     }
 
+    private void ChangeDrumSprite(DRUM_NOTE note)
+    {
+        characterDrum.sprite = GetSpriteForNote(note);
+        characterDrum.GetComponent<MMF_Player>().PlayFeedbacks();
+    }
 
     public override void DisplayInstructions(bool flag)
     {
