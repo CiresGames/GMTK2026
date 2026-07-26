@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -330,7 +331,8 @@ public class StartABandGame : MicroGamePlayer
 
     private void ChangeGuitarSprite(GUITAR_NOTE note)
     {
-        characterGuitar.sprite = GetSpriteForNote(note);  
+        characterGuitar.sprite = GetSpriteForNote(note);
+        characterGuitar.GetComponent<MMF_Player>().PlayFeedbacks(); 
     }
 
 
@@ -339,13 +341,21 @@ public class StartABandGame : MicroGamePlayer
 
         base.DisplayInstructions(flag); 
         p1Instruction.SetActive(flag);
+        p1Instruction.GetComponent<MMF_Player>().PlayFeedbacks(); 
         p2Intstruction.SetActive(flag); 
+        p2Intstruction.GetComponent<MMF_Player>().PlayFeedbacks(); 
     }
+
+   
 
     public override IEnumerator Success()
     {
         yield return null;
 
+        if(guitarSource.isPlaying)
+        {
+            guitarSource.Stop(); 
+        }
         guitarSource.PlayOneShot(successMusic);
 
         guitarSheetMusic.StartFeedbackLoop();

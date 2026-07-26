@@ -13,8 +13,7 @@ public class MicroGamePlayer : MonoBehaviour
     [SerializeField] TextMeshProUGUI instructionLabel;
     public bool hasResolved = false;
     public bool canInteract = false;
-    [SerializeField] Image p1Image, p2Image;
-
+    
     public virtual void UpdateInstructions(MicroGameSO microGame)
     {
         instructionLabel.text = microGame.instruction; 

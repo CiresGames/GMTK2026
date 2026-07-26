@@ -73,7 +73,11 @@ public class MicroGameManager : MonoBehaviour
         {
             currentGameIcon[index + 1].gameObject.SetActive(true);
             currentGameIndex++;
+
+            StartGame(currentGameIndex); 
         }
+
+
 
 
     }

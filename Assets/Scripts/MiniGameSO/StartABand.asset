@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uid: START A BAND
   instruction: Play Music !!
-  instructionDuration: 3
+  instructionDuration: 2
   p1Control: {fileID: 21300000, guid: 4a7aadeea9578ac40b105777b6d88496, type: 3}
   p2Control: {fileID: 21300000, guid: 4a7aadeea9578ac40b105777b6d88496, type: 3}
